@@ -1,8 +1,20 @@
-.coverFlowContainer{
+.coverFlowContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coverFlowContainer .imageContainer{
     position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.imageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

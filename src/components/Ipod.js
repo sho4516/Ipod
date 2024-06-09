@@ -6,6 +6,23 @@ import Coverflow from "./Coverflow";
 import Music from "./Music";
 import Games from "./Games";
 import Settings from "./Settings";
+import AllSongs from "./AllSongs";
+import song1 from "../static/Heeriye - Arijit Singh-(DJMaza).mp3";
+import song2 from "../static/Kya_Baat_Ay-Hardy_Sandhu-(Djjaani.com).mp3";
+import song3 from "../static/Nit Nit Lofi Version - Jasleen Royal-(DJMaza).mp3";
+import song4 from "../static/Rani Teri Vodka - Sachet Parampara-(DJMaza).mp3";
+import song5 from "../static/saariDuniya.mp3";
+import song6 from "../static/Sajjda - Gulam Jugni-(DJMaza).mp3";
+
+const songs = [
+  { title: "Heeriye", src: song1 },
+  { title: "Kya baat hai", src: song2 },
+  { title: "Nit Nit", src: song3 },
+  { title: "Rani teri vodka", src: song4 },
+  { title: "Saari Duniya", src: song5 },
+  { title: "Sajjda", src: song6 },
+  
+];
 
 const menuItems = [
   { name: "Coverflow", component: Coverflow },
@@ -13,7 +30,7 @@ const menuItems = [
     name: "Music",
     component: Music,
     submenu: [
-      { name: "All Songs", component: "" },
+      { name: "All Songs", component: AllSongs, props: { songs: songs } },
       { name: "Artists", component: "" },
       { name: "Albums", component: "" },
     ],
@@ -30,7 +47,10 @@ export default class Ipod extends React.Component {
       menuStack: [{ items: menuItems, activeIndex: 0 }],
       menuItemSelected: false,
       menuItemsDetailsSelected: null,
+      props: null,
+      playingSong: null,
     };
+    this.audioRef = React.createRef();
   }
 
   toggleMenuActive = () => {
@@ -73,6 +93,7 @@ export default class Ipod extends React.Component {
         menuItemsDetailsSelected: selectedMenu.component,
         menuItemSelected: true,
         menuActive: false,
+        props: selectedMenu.props,
       });
     } else {
       this.setState((prev) => {
@@ -100,14 +121,25 @@ export default class Ipod extends React.Component {
     });
   };
 
+  onSongSelect = (song) => {
+    this.setState({ playingSong: song }, () => {
+      if (this.audioRef.current) {
+        this.audioRef.current.src = song.src;
+        this.audioRef.current.play();
+      }
+    });
+  };
+
   render() {
     const {
       menuActive,
       menuStack,
       menuItemSelected,
       menuItemsDetailsSelected,
+      props,
     } = this.state;
     const currentMenu = menuStack[menuStack.length - 1];
+    console.log(menuStack);
     return (
       <div className="ipod">
         <Display
@@ -118,12 +150,20 @@ export default class Ipod extends React.Component {
           menuItemsDetailsSelected={menuItemsDetailsSelected}
           backNavigable={menuStack.length > 1}
           handleBack={this.handleBack}
+          properties={props}
+          onSongSelect={this.onSongSelect}
         />
         <Wheel
           onClickMenu={this.toggleMenuActive}
           onRotate={this.handleRotate}
           handleOkClick={this.handleOkClick}
         />
+        <audio ref={this.audioRef} />
+        {this.state.playingSong && (
+          <div className="playingSong">
+            Now Playing: {this.state.playingSong.title}
+          </div>
+        )}
       </div>
     );
   }

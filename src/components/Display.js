@@ -16,14 +16,16 @@ export default class Display extends React.Component {
       menuItems,
       active,
       backNavigable,
-      handleBack
+      handleBack,
+      properties,
+      onSongSelect
     } = this.props;
 
     return (
       <div className="displayContainer">
         {menuItemSelected &&
           menuItemsDetailsSelected &&
-          React.createElement(menuItemsDetailsSelected)}
+          React.createElement(menuItemsDetailsSelected, {...properties, onSongSelect: onSongSelect})}
         {!menuItemSelected && <Wallpaper />}
         {menuActive && <Menu menuItems={menuItems} active={active} backNavigable={backNavigable} handleBack={handleBack}/>}
       </div>
