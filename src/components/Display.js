@@ -1,0 +1,30 @@
+import React from "react";
+import "../CSS/display.css";
+import Wallpaper from "./Wallpaper";
+import Menu from "./Menu";
+
+export default class Display extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {
+      menuItemSelected,
+      menuItemsDetailsSelected,
+      menuActive,
+      menuItems,
+      active,
+    } = this.props;
+
+    return (
+      <div className="displayContainer">
+        {menuItemSelected &&
+          menuItemsDetailsSelected &&
+          React.createElement(menuItemsDetailsSelected)}
+        {!menuItemSelected && <Wallpaper />}
+        {menuActive && <Menu menuItems={menuItems} active={active} />}
+      </div>
+    );
+  }
+}

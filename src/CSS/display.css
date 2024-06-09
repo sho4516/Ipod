@@ -1,0 +1,7 @@
+.displayContainer{
+    position: relative;
+    width: 98%;
+    height: 60%;
+    border: 1px solid black;
+    margin-top: 1.5rem;
+}

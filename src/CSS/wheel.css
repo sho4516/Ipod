@@ -1,0 +1,67 @@
+.wheelContainer {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  position: relative;
+  color: #d8d8cb;
+}
+
+.centreButton {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #d8d8cb;
+  border-radius: 50%;
+  top: 25%;
+  left: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+}
+
+.centreButton .text {
+  user-select: none;
+}
+
+.wheelContainer #menu {
+  position: absolute;
+  left: 32%;
+  top: 8%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wheelContainer #forward {
+  position: absolute;
+  right: 8%;
+  top: 44%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wheelContainer #backward {
+  position: absolute;
+  left: 8%;
+  top: 44%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wheelContainer #play_pause {
+  position: absolute;
+  bottom: 8%;
+  left: 39%;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.wheelContainer #play_pause > .text:nth-child(1) {
+  border-right: 1px solid;
+  padding-right: 3px;
+}
