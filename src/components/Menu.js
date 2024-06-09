@@ -10,15 +10,24 @@ export default class Menu extends React.Component {
   render() {
     const menuItems = this.props.menuItems;
     const active = this.props.active;
+    const backNavigable = this.props.backNavigable;
+    const handleBack = this.props.handleBack;
 
     return (
       <div className="menu">
         <div className="menuHeading">
-          <h2>IPOD</h2>
+          {backNavigable && (
+            <div onClick={handleBack} className="back">
+              <i class="fa-solid fa-left-long"></i>
+            </div>
+          )}
+          <div>
+            <h2>Ipod</h2>
+          </div>
         </div>
         <div className="menuItems">
           {menuItems.map((item, index) => {
-            return <MenuItem item={item} active={active === index} />;
+            return <MenuItem item={item.name} active={active === index} />;
           })}
         </div>
       </div>

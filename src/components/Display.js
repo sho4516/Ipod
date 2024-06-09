@@ -15,6 +15,8 @@ export default class Display extends React.Component {
       menuActive,
       menuItems,
       active,
+      backNavigable,
+      handleBack
     } = this.props;
 
     return (
@@ -23,7 +25,7 @@ export default class Display extends React.Component {
           menuItemsDetailsSelected &&
           React.createElement(menuItemsDetailsSelected)}
         {!menuItemSelected && <Wallpaper />}
-        {menuActive && <Menu menuItems={menuItems} active={active} />}
+        {menuActive && <Menu menuItems={menuItems} active={active} backNavigable={backNavigable} handleBack={handleBack}/>}
       </div>
     );
   }
