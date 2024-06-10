@@ -12,7 +12,16 @@
 
 .menu .menuHeading {
   width: 100%;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px;
+}
+
+.menuHeading h2{
+    margin: 0;
+    padding: 0;
 }
 
 .menuItems {
@@ -20,4 +29,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.back{
+    cursor: pointer;
 }

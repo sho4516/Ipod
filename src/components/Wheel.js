@@ -16,7 +16,6 @@ export default class Wheel extends React.Component {
   }
 
   handleRotate = (e) => {
-    console.log(e);
     if (e.detail.distanceFromOrigin === 0) {
       this.angle = e.detail.angle;
     }
