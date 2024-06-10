@@ -9,20 +9,14 @@ import Settings from "./Settings";
 import AllSongs from "./AllSongs";
 import Artists from "./Artists";
 import Album from "./Album";
-import song1 from "../static/Heeriye - Arijit Singh-(DJMaza).mp3";
-import song2 from "../static/Kya_Baat_Ay-Hardy_Sandhu-(Djjaani.com).mp3";
-import song3 from "../static/Nit Nit Lofi Version - Jasleen Royal-(DJMaza).mp3";
-import song4 from "../static/Rani Teri Vodka - Sachet Parampara-(DJMaza).mp3";
-import song5 from "../static/saariDuniya.mp3";
-import song6 from "../static/Sajjda - Gulam Jugni-(DJMaza).mp3";
 
 const songs = [
-  { title: "Heeriye", src: song1 },
-  { title: "Kya baat hai", src: song2 },
-  { title: "Nit Nit", src: song3 },
-  { title: "Rani teri vodka", src: song4 },
-  { title: "Saari Duniya", src: song5 },
-  { title: "Sajjda", src: song6 },
+  { title: "Heeriye", src: "/songs/Heeriye - Arijit Singh-(DJMaza).mp3" },
+  { title: "Kya baat hai", src: "/songs/Kya_Baat_Ay-Hardy_Sandhu-(Djjaani.com).mp3" },
+  { title: "Nit Nit", src: "/songs/Nit Nit Lofi Version - Jasleen Royal-(DJMaza).mp3" },
+  { title: "Rani teri vodka", src: "/songs/Rani Teri Vodka - Sachet Parampara-(DJMaza).mp3" },
+  { title: "Saari Duniya", src: "/songs/saariDuniya.mp3" },
+  { title: "Sajjda", src: "/songs/Sajjda - Gulam Jugni-(DJMaza).mp3" },
 ];
 
 const menuItems = [
