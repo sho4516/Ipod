@@ -6,7 +6,7 @@ export default class Wallpaper extends React.Component {
     return (
       <div className="wallpaperContainer">
         <img
-          src="https://i.pinimg.com/236x/12/ee/bc/12eebc754b4ea199edc6f64aefaf5642.jpg"
+          src="https://wallpapers.com/images/featured/apple-k2475ozowx4qo6bv.jpg"
           alt=""
         />
       </div>

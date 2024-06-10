@@ -7,6 +7,8 @@ import Music from "./Music";
 import Games from "./Games";
 import Settings from "./Settings";
 import AllSongs from "./AllSongs";
+import Artists from "./Artists";
+import Album from "./Album";
 import song1 from "../static/Heeriye - Arijit Singh-(DJMaza).mp3";
 import song2 from "../static/Kya_Baat_Ay-Hardy_Sandhu-(Djjaani.com).mp3";
 import song3 from "../static/Nit Nit Lofi Version - Jasleen Royal-(DJMaza).mp3";
@@ -21,7 +23,6 @@ const songs = [
   { title: "Rani teri vodka", src: song4 },
   { title: "Saari Duniya", src: song5 },
   { title: "Sajjda", src: song6 },
-  
 ];
 
 const menuItems = [
@@ -31,8 +32,8 @@ const menuItems = [
     component: Music,
     submenu: [
       { name: "All Songs", component: AllSongs, props: { songs: songs } },
-      { name: "Artists", component: "" },
-      { name: "Albums", component: "" },
+      { name: "Artists", component: Artists },
+      { name: "Albums", component: Album },
     ],
   },
   { name: "Games", component: Games },
@@ -141,30 +142,32 @@ export default class Ipod extends React.Component {
     const currentMenu = menuStack[menuStack.length - 1];
     console.log(menuStack);
     return (
-      <div className="ipod">
-        <Display
-          menuActive={menuActive}
-          menuItems={currentMenu.items}
-          active={currentMenu.activeIndex}
-          menuItemSelected={menuItemSelected}
-          menuItemsDetailsSelected={menuItemsDetailsSelected}
-          backNavigable={menuStack.length > 1}
-          handleBack={this.handleBack}
-          properties={props}
-          onSongSelect={this.onSongSelect}
-        />
-        <Wheel
-          onClickMenu={this.toggleMenuActive}
-          onRotate={this.handleRotate}
-          handleOkClick={this.handleOkClick}
-        />
-        <audio ref={this.audioRef} />
-        {this.state.playingSong && (
-          <div className="playingSong">
-            Now Playing: {this.state.playingSong.title}
-          </div>
-        )}
-      </div>
+      <>
+        <div className="ipod">
+          <Display
+            menuActive={menuActive}
+            menuItems={currentMenu.items}
+            active={currentMenu.activeIndex}
+            menuItemSelected={menuItemSelected}
+            menuItemsDetailsSelected={menuItemsDetailsSelected}
+            backNavigable={menuStack.length > 1}
+            handleBack={this.handleBack}
+            properties={props}
+            onSongSelect={this.onSongSelect}
+          />
+          <Wheel
+            onClickMenu={this.toggleMenuActive}
+            onRotate={this.handleRotate}
+            handleOkClick={this.handleOkClick}
+          />
+          <audio ref={this.audioRef} />
+          {this.state.playingSong && (
+            <div className="playingSong">
+              Now Playing: {this.state.playingSong.title}
+            </div>
+          )}
+        </div>
+      </>
     );
   }
 }
