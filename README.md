@@ -2,6 +2,13 @@
 
 Ipod created with React JS
 
+## Technologies Used
+
+- React 18
+- ZingTouch Library
+- React Components (Class Based)
+- Component Lifecycle methods
+
 ## Available Scripts
 
 In the project directory, you can run:
